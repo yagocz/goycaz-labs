@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { WHATSAPP, WHATSAPP_PRETTY, EMAIL, INSTAGRAM, INSTAGRAM_URL } from '../lib/site';
+---
+<Layout
+  active="/contacto"
+  title="Contacto — GoyCaz Labs"
+  titleEn="Contact — GoyCaz Labs"
+  description="Cuéntanos qué te está frenando. Una llamada de 20 minutos, sin costo y sin compromiso.">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="bar"></span><span data-en="Get started">Empezar</span></span>
+      <h1 data-en="Tell us what's slowing you down.">Cuéntanos qué te está frenando.</h1>
+      <p class="lead" data-en="A 20-minute call, no cost and no commitment. We'll tell you straight if AI or software gives you a real return — and how we'd do it.">Una llamada de 20 minutos, sin costo y sin compromiso. Te decimos con franqueza si la IA o el software te dan un retorno real — y cómo lo haríamos.</p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:8px">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="cta-grid">
+          <div>
+            <h2 style="margin-bottom:15px" data-en="Reach us however you like.">Escríbenos por donde prefieras.</h2>
+            <p class="lead" data-en="The fastest way is WhatsApp — fill the form and it opens with your message ready. Prefer email or a call? All good.">Lo más rápido es WhatsApp — llena el formulario y se abre con tu mensaje listo. ¿Prefieres correo o una llamada? También.</p>
+            <div class="cta-info">
+              <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola GoyCaz Labs, quiero saber más')}`} target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.2-.2-1.2-1.5-1.2-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.4 2.6 1.6.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.5.2.5.4.1.2.1.7-.1 1.5Z"/></svg>
+                <span>WhatsApp · {WHATSAPP_PRETTY}</span>
+              </a>
+              <a href={`mailto:${EMAIL}`}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                <span>{EMAIL}</span>
+              </a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                <span>@{INSTAGRAM}</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="row">
+              <div class="field"><label data-en="Name">Nombre</label><input id="f_name" required autocomplete="name" placeholder="Ej. María Torres" /></div>
+              <div class="field"><label data-en="Business">Negocio</label><input id="f_biz" autocomplete="organization" placeholder="Ej. Restaurante Sol" /></div>
+            </div>
+            <div class="field"><label data-en="What do you need?">¿Qué necesitas?</label>
+              <select id="f_need">
+                <option data-en="AI agent on WhatsApp">Agente de IA por WhatsApp</option>
+                <option data-en="Website or app">Web o app</option>
+                <option data-en="Automate a process">Automatizar un proceso</option>
+                <option data-en="AI over my data">IA sobre mis datos</option>
+                <option data-en="Modernize a system">Modernizar un sistema</option>
+                <option data-en="Not sure yet — need advice">Aún no sé — quiero que me orienten</option>
+              </select>
+            </div>
+            <div class="field"><label data-en="Tell us a bit more">Cuéntanos un poco más</label><textarea id="f_msg" placeholder="¿Qué parte de tu día a día te quita más tiempo o te hace perder ventas?"></textarea></div>
+            <button type="submit" class="btn btn-wa" style="justify-content:center">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.2-.2-1.2-1.5-1.2-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.4 2.6 1.6.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.5.2.5.4.1.2.1.7-.1 1.5Z"/></svg>
+              <span data-en="Send via WhatsApp">Enviar por WhatsApp</span>
+            </button>
+            <p class="form-note" data-en="Opens WhatsApp with your message ready to send.">Abre WhatsApp con tu mensaje listo para enviar.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

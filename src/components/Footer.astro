@@ -1,0 +1,31 @@
+---
+import { url, EMAIL, WHATSAPP, INSTAGRAM_URL, LINKEDIN_URL } from '../lib/site';
+---
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href={url('/')} class="logo"><span class="mark">G</span>GoyCaz<span class="dim">Labs</span></a>
+        <p data-en="AI, software and infrastructure that actually ship to production — without breaking what works, no lock-in.">IA, software e infraestructura que sí llegan a producción — sin romper lo que funciona, sin lock-in.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-en="Explore">Explora</h4>
+        <a href={url('/servicios')} data-en="Services">Servicios</a>
+        <a href={url('/casos')} data-en="Work">Casos</a>
+        <a href={url('/precios')} data-en="Pricing">Precios</a>
+        <a href={url('/nosotros')} data-en="About">Nosotros</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-en="Contact">Contacto</h4>
+        <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener">WhatsApp</a>
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <a href={INSTAGRAM_URL} target="_blank" rel="noopener">Instagram</a>
+        <a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="logo" style="font-size:16px"><span class="mark" style="width:24px;height:24px;font-size:13px">G</span>GoyCaz<span class="dim">Labs</span></div>
+      <div class="muted">© <span id="yr">2026</span> GoyCaz Labs · <span data-en="Built to run in production.">Hecho para correr en producción.</span></div>
+    </div>
+  </div>
+</footer>

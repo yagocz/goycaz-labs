@@ -1,0 +1,118 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { url, WHATSAPP } from '../lib/site';
+
+const {
+  title = 'GoyCaz Labs — IA, software e infraestructura que sí llegan a producción',
+  description = 'Construimos agentes de IA, software, apps e infraestructura para empresas — en producción, sin romper lo que funciona y sin lock-in.',
+  active = '',
+  titleEn = 'GoyCaz Labs — AI, software & infrastructure that actually ship to production',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale" content="es_PE" />
+  <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+</head>
+<body>
+  <Header active={active} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+
+  <script is:inline define:vars={{ WHATSAPP, titleEn }}>
+    (function () {
+      var STORE = 'goycaz-lang';
+      var els = document.querySelectorAll('[data-en]');
+      els.forEach(function (el) { el.dataset.es = el.innerHTML; });
+      var titleEs = document.title;
+
+      function apply(lang) {
+        var en = lang === 'en';
+        els.forEach(function (el) { el.innerHTML = en ? el.dataset.en : el.dataset.es; });
+        document.documentElement.lang = en ? 'en' : 'es';
+        document.title = en ? titleEn : titleEs;
+        var be = document.getElementById('btnEs'), bn = document.getElementById('btnEn');
+        if (be) be.classList.toggle('active', !en);
+        if (bn) bn.classList.toggle('active', en);
+        try { localStorage.setItem(STORE, lang); } catch (e) {}
+        window.__lang = lang;
+      }
+      var saved = 'es';
+      try { saved = localStorage.getItem(STORE) || 'es'; } catch (e) {}
+      apply(saved);
+      document.querySelectorAll('[data-lang]').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+      });
+
+      // mobile menu
+      var mb = document.getElementById('menuBtn'), nl = document.getElementById('navLinks');
+      if (mb && nl) {
+        mb.addEventListener('click', function () {
+          var open = nl.classList.toggle('open');
+          mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        nl.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () { nl.classList.remove('open'); });
+        });
+      }
+
+      // year
+      var yr = document.getElementById('yr');
+      if (yr) yr.textContent = new Date().getFullYear();
+
+      // reveal on scroll
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else { reveals.forEach(function (el) { el.classList.add('in'); }); }
+
+      // terminal typing (home only)
+      var lines = Array.prototype.slice.call(document.querySelectorAll('#term .l'));
+      if (lines.length) {
+        if (reduce) { lines.forEach(function (l) { l.classList.add('show'); }); }
+        else {
+          var i = 0;
+          (function step() {
+            if (i >= lines.length) return;
+            lines[i].classList.add('show'); i++;
+            setTimeout(step, 420);
+          })();
+        }
+      }
+
+      // contact form -> WhatsApp
+      var form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          var g = function (id) { var n = document.getElementById(id); return n ? (n.value || '').trim() : ''; };
+          var name = g('f_name'), biz = g('f_biz'), need = g('f_need'), msg = g('f_msg');
+          var en = window.__lang === 'en';
+          var t = en
+            ? ("Hi GoyCaz Labs! I'm " + name + (biz ? (' from ' + biz) : '') + '. I’m interested in: ' + need + '.' + (msg ? (' ' + msg) : ''))
+            : ('¡Hola GoyCaz Labs! Soy ' + name + (biz ? (' de ' + biz) : '') + '. Me interesa: ' + need + '.' + (msg ? (' ' + msg) : ''));
+          window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(t), '_blank');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

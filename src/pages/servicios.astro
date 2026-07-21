@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services } from '../lib/content';
+---
+<Layout
+  active="/servicios"
+  title="Servicios — GoyCaz Labs"
+  titleEn="Services — GoyCaz Labs"
+  description="Agentes de IA, IA sobre tus datos, web, apps, infraestructura, modernización y automatización — desplegados en producción.">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="bar"></span><span data-en="Services">Servicios</span></span>
+      <h1 data-en="One team for everything you need to modernize and use AI.">Un solo equipo para todo lo que necesitas para modernizarte y usar IA.</h1>
+      <p class="lead" data-en="We don't sell you a tool — we solve a problem and leave it running in production. Reference prices below; your exact quote comes out of the discovery call.">No te vendemos una herramienta — resolvemos un problema y lo dejamos corriendo en producción. Precios de referencia abajo; tu cotización exacta sale del diagnóstico.</p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:8px">
+    <div class="wrap">
+      <div class="serv-detail">
+        {services.map((s) => (
+          <div class="srow reveal">
+            <div class="ic" set:html={s.icon}></div>
+            <div>
+              <h3 data-en={s.en}>{s.es}</h3>
+              <p data-en={s.descEn}>{s.descEs}</p>
+              <div class="tags">
+                {s.bulletsEs.map((b, i) => <span data-en={s.bulletsEn[i]}>{b}</span>)}
+              </div>
+            </div>
+            <div class="price-tag">{s.price}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">→</span><span class="bar"></span><span data-en="How we work">Cómo trabajamos</span></span>
+        <h2 data-en="A clear pipeline, fixed pricing, no surprises.">Un pipeline claro, precio fijo y sin sorpresas.</h2>
+      </div>
+      <div class="pipe">
+        <div class="step reveal"><div class="n" data-en="01 · Discovery">01 · Diagnóstico</div><h3 data-en="We understand your business">Entendemos tu negocio</h3><p data-en="We map your operation and find where AI or software brings the most value. Fast, no commitment.">Mapeamos tu operación y encontramos dónde la IA o el software dan más valor. Rápido y sin compromiso.</p></div>
+        <div class="step reveal"><div class="n" data-en="02 · Design">02 · Diseño</div><h3 data-en="We scope the solution">Definimos la solución</h3><p data-en="We agree on scope, the expected outcome and a fixed price. You know exactly what you get.">Acordamos alcance, el resultado esperado y un precio fijo. Sabes exactamente qué recibes.</p></div>
+        <div class="step reveal"><div class="n" data-en="03 · Build">03 · Construcción</div><h3 data-en="We build and test">Construimos y probamos</h3><p data-en="We develop it and test it in your real environment — not an isolated demo.">Lo desarrollamos y lo probamos en tu entorno real — no en una demo aislada.</p></div>
+        <div class="step reveal"><div class="n" data-en="04 · Production">04 · Producción</div><h3 data-en="We ship and maintain">Desplegamos y mantenemos</h3><p data-en="We leave it running in production, documented and supported so it doesn't go down.">Lo dejamos corriendo en producción, documentado y con soporte para que no se caiga.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

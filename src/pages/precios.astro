@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { url } from '../lib/site';
+const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>';
+---
+<Layout
+  active="/precios"
+  title="Precios — GoyCaz Labs"
+  titleEn="Pricing — GoyCaz Labs"
+  description="Precios por resultado, no por hora. Victoria rápida desde US$600, proyecto a medida desde US$2,000, plataforma IA+datos desde US$6,000. Mantenimiento desde US$150/mes.">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="bar"></span><span data-en="Pricing">Precios</span></span>
+      <h1 data-en="Start small. Grow when it pays off.">Empieza pequeño. Crece cuando ya rinde.</h1>
+      <p class="lead" data-en="We price by outcome, not by the hour. These are reference ranges — your exact quote comes out of the discovery call.">Cobramos por resultado, no por hora. Estos son rangos de referencia — tu cotización exacta sale del diagnóstico.</p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:8px">
+    <div class="wrap">
+      <div class="grid-price">
+        <div class="plan reveal">
+          <div class="pname" data-en="Quick win">Victoria rápida</div>
+          <div class="pdesc" data-en="A WhatsApp agent or a modern website. Live in 7–14 days.">Un agente de WhatsApp o una web moderna. En vivo en 7–14 días.</div>
+          <div class="price"><small>desde </small>US$ 600</div>
+          <div class="from" data-en="one-off project">proyecto puntual</div>
+          <ul>
+            <li><span set:html={check}></span><span data-en="WhatsApp agent or landing / website">Agente de WhatsApp o landing / web</span></li>
+            <li><span set:html={check}></span><span data-en="Live in your channels">Puesto en vivo en tus canales</span></li>
+            <li><span set:html={check}></span><span data-en="Training so your team uses it">Capacitación para que tu equipo lo use</span></li>
+            <li><span set:html={check}></span><span data-en="Fixed price, agreed up front">Precio fijo, acordado desde el inicio</span></li>
+          </ul>
+          <a href={url('/contacto')} class="btn btn-ghost" data-en="Start here">Empezar por aquí</a>
+        </div>
+
+        <div class="plan feat reveal">
+          <span class="badge" data-en="Most chosen">Más elegido</span>
+          <div class="pname" data-en="Custom project">Proyecto a medida</div>
+          <div class="pdesc" data-en="App, web or automation with AI, integrated into your real systems.">App, web o automatización con IA, integrada a tus sistemas reales.</div>
+          <div class="price"><small>desde </small>US$ 2,000</div>
+          <div class="from" data-en="scoped &amp; fixed price">alcance y precio fijo</div>
+          <ul>
+            <li><span set:html={check}></span><span data-en="Everything in Quick win, plus:">Todo lo de Victoria rápida, y además:</span></li>
+            <li><span set:html={check}></span><span data-en="Integration with your systems">Integración con tus sistemas</span></li>
+            <li><span set:html={check}></span><span data-en="Deployed in production with monitoring">Desplegado en producción con monitoreo</span></li>
+            <li><span set:html={check}></span><span data-en="Documentation, no lock-in">Documentación, sin lock-in</span></li>
+          </ul>
+          <a href={url('/contacto')} class="btn btn-primary" data-en="Book a call">Agenda una llamada</a>
+        </div>
+
+        <div class="plan reveal">
+          <div class="pname" data-en="AI + Data platform">Plataforma IA + Datos</div>
+          <div class="pdesc" data-en="&ldquo;Talk to your data&rdquo;, legacy modernization, on-prem AI.">“Habla con tus datos”, modernización de sistemas, IA on-premise.</div>
+          <div class="price"><small>desde </small>US$ 6,000</div>
+          <div class="from" data-en="/ tailored quote">/ cotización a medida</div>
+          <ul>
+            <li><span set:html={check}></span><span data-en="AI over your databases &amp; documents">IA sobre tus bases y documentos</span></li>
+            <li><span set:html={check}></span><span data-en="Legacy modernization in phases">Modernización de sistemas por fases</span></li>
+            <li><span set:html={check}></span><span data-en="Cloud or fully on-premise">En la nube o totalmente on-premise</span></li>
+            <li><span set:html={check}></span><span data-en="Access control &amp; security">Control de acceso y seguridad</span></li>
+          </ul>
+          <a href={url('/contacto')} class="btn btn-ghost" data-en="Talk to us">Conversemos</a>
+        </div>
+      </div>
+      <p class="price-note"><span data-en="Ongoing support &amp; maintenance from ">Soporte y mantenimiento continuo desde </span><b>US$ 150–500/mes</b><span data-en=" · Launch pricing available for the first projects."> · Precio de lanzamiento disponible para los primeros proyectos.</span></p>
+    </div>
+  </section>
+
+  <!-- pricing FAQ -->
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="bar"></span>FAQ</span>
+        <h2 data-en="Straight answers about pricing.">Respuestas directas sobre precios.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details><summary><span data-en="How do you charge?">¿Cómo cobran?</span><span class="plus"></span></summary><p data-en="By outcome, with a fixed price agreed up front — no surprise hourly bills. You'll always get options so you can pick the scope that fits your budget.">Por resultado, con un precio fijo acordado desde el inicio — sin facturas por hora que sorprenden. Siempre te damos opciones para que elijas el alcance que entra en tu presupuesto.</p></details>
+        <details><summary><span data-en="What if it's more than I can spend?">¿Y si es más de lo que puedo gastar?</span><span class="plus"></span></summary><p data-en="We never just drop the price — we adjust the scope. We start with a quick win that pays for itself, and grow from there once it's already returning value.">Nunca bajamos el precio a secas — ajustamos el alcance. Empezamos con una victoria rápida que se paga sola, y crecemos desde ahí una vez que ya está rindiendo.</p></details>
+        <details><summary><span data-en="Is maintenance mandatory?">¿El mantenimiento es obligatorio?</span><span class="plus"></span></summary><p data-en="No. It's optional. Since everything runs on your own accounts and is documented, you can maintain it yourself or bring in your team. Most clients prefer we handle it so they can forget about it.">No. Es opcional. Como todo corre en tus propias cuentas y está documentado, puedes mantenerlo tú o con tu equipo. La mayoría prefiere que lo llevemos nosotros para olvidarse del tema.</p></details>
+        <details><summary><span data-en="Do prices include taxes?">¿Los precios incluyen impuestos?</span><span class="plus"></span></summary><p data-en="Prices are reference ranges in US dollars and don't include local taxes. You'll get a clear quote with the final amount before we start — no hidden costs.">Los precios son rangos de referencia en dólares y no incluyen impuestos locales. Recibes una cotización clara con el monto final antes de empezar — sin costos ocultos.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

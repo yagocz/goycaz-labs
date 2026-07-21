@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { cases } from '../lib/content';
+---
+<Layout
+  active="/casos"
+  title="Casos — GoyCaz Labs"
+  titleEn="Work — GoyCaz Labs"
+  description="Trabajo real en producción: IA sobre 20 años de datos de una minera, kioscos de autoservicio con facturación, e infraestructura estable con 99.9% de uptime.">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="bar"></span><span data-en="Real work">Casos reales</span></span>
+      <h1 data-en="Work in production, not slideware.">Trabajo en producción, no diapositivas.</h1>
+      <p class="lead" data-en="Problem, what we did, and the outcome. Real systems running with real users, real data and real load.">El problema, qué hicimos y el resultado. Sistemas reales corriendo con usuarios, datos y carga reales.</p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:8px">
+    <div class="wrap">
+      {cases.map((c) => (
+        <article class="study reveal">
+          <div class="study-head">
+            <span class="tag" data-en={c.tagEn}>{c.tagEs}</span>
+            <h3 data-en={c.en}>{c.es}</h3>
+          </div>
+          <div class="study-body">
+            <div class="col"><div class="k" data-en="Problem">Problema</div><p data-en={c.problemEn}>{c.problemEs}</p></div>
+            <div class="col"><div class="k" data-en="What we did">Qué hicimos</div><p data-en={c.approachEn}>{c.approachEs}</p></div>
+            <div class="col"><div class="k" data-en="Result">Resultado</div><p data-en={c.resultEn}>{c.resultEs}</p></div>
+          </div>
+          <div class="study-metrics">
+            {c.metrics.map((m) => (
+              <div class="m"><div class="big" data-en={m.big}>{m.big}</div><div class="cap" data-en={m.capEn}>{m.capEs}</div></div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

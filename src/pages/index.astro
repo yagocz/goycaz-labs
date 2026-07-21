@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { url } from '../lib/site';
+import { services, cases } from '../lib/content';
+const stack = ['Python · FastAPI', 'Flutter', 'RAG · MCP', 'Claude · Gemini', 'SQL Server · PostgreSQL', 'Docker · Kamal', 'AWS · Azure · On-prem', '.NET · Node'];
+---
+<Layout active="">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-glow"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="status-pill"><span class="dot-live"></span><span data-en="System status: in production">Estado del sistema: en producción</span></span>
+        <h1><span data-en="Software &amp; AI that ">Software e IA que </span><span class="hl" data-en="actually ship to production.">sí llegan a producción.</span></h1>
+        <p class="lead" data-en="We build AI agents, apps and infrastructure for real companies — and we deploy them in your environment. Without breaking what already works, and without locking you in.">Construimos agentes de IA, aplicaciones e infraestructura para empresas de verdad — y los desplegamos en tu entorno. Sin romper lo que ya funciona y sin dejarte atado a nadie.</p>
+        <div class="hero-cta">
+          <a href={url('/contacto')} class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span data-en="Start your project">Empecemos tu proyecto</span>
+          </a>
+          <a href={url('/servicios')} class="btn btn-ghost" data-en="See what we do">Ver qué hacemos</a>
+        </div>
+        <div class="hero-trust">
+          <span><span class="c">◆</span> <span data-en="AI in production for mining">IA en producción para minería</span></span>
+          <span><span class="c">◆</span> <span data-en="Peru · remote across LATAM &amp; the US">Perú · remoto en LATAM y EE.UU.</span></span>
+        </div>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="term-bar"><i></i><i></i><i></i><span class="term-title">goycaz — deploy</span></div>
+        <div class="term-body" id="term">
+          <div class="l"><span class="p">$</span> goycaz deploy --prod</div>
+          <div class="l" data-en='<span class="mut">&rarr;</span> building <span class="path">app</span>&hellip; <span class="ok">&check;</span>'><span class="mut">&rarr;</span> construyendo <span class="path">app</span>&hellip; <span class="ok">&check;</span></div>
+          <div class="l" data-en='<span class="mut">&rarr;</span> connecting <span class="path">database</span>&hellip; <span class="ok">&check;</span>'><span class="mut">&rarr;</span> conectando <span class="path">base de datos</span>&hellip; <span class="ok">&check;</span></div>
+          <div class="l" data-en='<span class="mut">&rarr;</span> starting <span class="path">AI agent</span>&hellip; <span class="ok">&check;</span>'><span class="mut">&rarr;</span> iniciando <span class="path">agente de IA</span>&hellip; <span class="ok">&check;</span></div>
+          <div class="l" data-en='<span class="mut">&rarr;</span> access control by role&hellip; <span class="ok">&check;</span>'><span class="mut">&rarr;</span> control de acceso por rol&hellip; <span class="ok">&check;</span></div>
+          <div class="l"><span class="mut">&rarr;</span> health check&hellip; <span class="ok">&check;</span></div>
+          <div class="l">&nbsp;</div>
+          <div class="l" data-en='<span class="live">&#9679;</span> <span class="live">live in production</span> <span class="mut">&middot; 99.9% uptime &middot; no lock-in</span><span class="cursor"></span>'><span class="live">&#9679;</span> <span class="live">en vivo en producción</span> <span class="mut">&middot; 99.9% uptime &middot; sin lock-in</span><span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <span class="label" data-en="Stack">Stack</span>
+      {stack.map((t) => <span class="tech">{t}</span>)}
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="block" id="servicios">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">01</span><span class="bar"></span><span data-en="Services">Servicios</span></span>
+        <h2 data-en="Everything to modernize your business and put AI to work — from one team.">Todo para modernizar tu negocio y poner la IA a trabajar — de un solo equipo.</h2>
+        <p class="lead" data-en="From a simple automation to a full AI platform over your data. We start with whatever gives you the most value today.">Desde una automatización simple hasta una plataforma de IA sobre tus datos. Empezamos con lo que más valor te da hoy.</p>
+      </div>
+      <div class="grid-serv">
+        {services.map((s) => (
+          <a href={url('/servicios')} class="card reveal">
+            <div class="ic" set:html={s.icon}></div>
+            <h3 data-en={s.en}>{s.es}</h3>
+            <p data-en={s.descEn}>{s.descEs}</p>
+            <ul>{s.bulletsEs.map((b, i) => <li data-en={s.bulletsEn[i]}>{b}</li>)}</ul>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">02</span><span class="bar"></span><span data-en="Why GoyCaz">Por qué GoyCaz</span></span>
+        <h2 data-en="Lots of people build demos. We keep them running.">Muchos hacen demos. Nosotros las mantenemos corriendo.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="pillar reveal"><span class="k" data-en="/ 01 real production">/ 01 producción real</span><h3 data-en="In production, not a demo">En producción, no en una demo</h3><p data-en="A slide is easy; a system that holds up with real users, real data and real load is another thing. That's exactly where we operate.">Una diapositiva es fácil; un sistema que aguanta con usuarios, datos y carga reales es otra cosa. Ahí es exactamente donde trabajamos.</p></div>
+        <div class="pillar reveal"><span class="k" data-en="/ 02 no lock-in">/ 02 sin lock-in</span><h3 data-en="Yours, with no strings">Tuyo, sin ataduras</h3><p data-en="It runs on your infrastructure and accounts, with documentation and open standards. If one day you leave, you take everything with you.">Corre en tu infraestructura y tus cuentas, con documentación y estándares abiertos. Si algún día te vas, te llevas todo contigo.</p></div>
+        <div class="pillar reveal"><span class="k" data-en="/ 03 don't break prod">/ 03 sin romper prod</span><h3 data-en="Without breaking what works">Sin romper lo que funciona</h3><p data-en="We integrate with your existing systems and migrate in phases. The business keeps running while we modernize underneath.">Nos integramos con tus sistemas actuales y migramos por fases. El negocio sigue operando mientras modernizamos por debajo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES teaser -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;max-width:none">
+        <div>
+          <span class="eyebrow"><span class="num">03</span><span class="bar"></span><span data-en="Real work">Casos reales</span></span>
+          <h2 data-en="Work in production, not slideware.">Trabajo en producción, no diapositivas.</h2>
+        </div>
+        <a href={url('/casos')} class="btn btn-ghost" data-en="See all work">Ver todos los casos</a>
+      </div>
+      <div class="grid-case">
+        {cases.map((c) => (
+          <div class="case reveal">
+            <span class="tag" data-en={c.tagEn}>{c.tagEs}</span>
+            <h3 data-en={c.en}>{c.es}</h3>
+            <p data-en={c.resultEn}>{c.resultEs}</p>
+            <div class="result"><span class="big" data-en={c.metrics[0].big}>{c.metrics[0].big}</span><span class="cap" data-en={c.metrics[0].capEn}>{c.metrics[0].capEs}</span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

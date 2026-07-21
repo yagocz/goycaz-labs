@@ -1,0 +1,23 @@
+---
+import { url, NAV } from '../lib/site';
+const { active = '' } = Astro.props;
+---
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href={url('/')} class="logo"><span class="mark">G</span>GoyCaz<span class="dim">Labs</span></a>
+    <nav class="nav-links" id="navLinks">
+      {NAV.map((item) => (
+        <a href={url(item.href)} class={active === item.href ? 'active' : ''} data-en={item.en}>{item.es}</a>
+      ))}
+    </nav>
+    <div class="nav-cta">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button id="btnEs" class="active" data-lang="es">ES</button>
+        <button id="btnEn" data-lang="en">EN</button>
+      </div>
+      <a href={url('/contacto')} class="btn btn-ghost" data-en="Talk to us">Conversemos</a>
+      <a href={url('/contacto')} class="btn btn-primary" data-en="Book a call">Agenda una llamada</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
