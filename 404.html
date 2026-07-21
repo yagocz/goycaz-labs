@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>404 — GoyCaz Labs</title><meta name="description" content="Página no encontrada."><meta name="theme-color" content="#0B0F17"><link rel="canonical" href="https://yagocz.github.io/goycaz-labs/404/"><meta property="og:type" content="website"><meta property="og:title" content="404 — GoyCaz Labs"><meta property="og:description" content="Página no encontrada."><meta property="og:locale" content="es_PE"><link rel="icon" href="/goycaz-labs/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/goycaz-labs/_astro/casos.ofWIi1iF.css"></head> <body> <header class="nav"> <div class="wrap nav-inner"> <a href="/goycaz-labs/" class="logo"><span class="mark">G</span>GoyCaz<span class="dim">Labs</span></a> <nav class="nav-links" id="navLinks"> <a href="/goycaz-labs/servicios" class data-en="Services">Servicios</a><a href="/goycaz-labs/casos" class data-en="Work">Casos</a><a href="/goycaz-labs/precios" class data-en="Pricing">Precios</a><a href="/goycaz-labs/nosotros" class data-en="About">Nosotros</a><a href="/goycaz-labs/contacto" class data-en="Contact">Contacto</a> </nav> <div class="nav-cta"> <div class="lang" role="group" aria-label="Idioma / Language"> <button id="btnEs" class="active" data-lang="es">ES</button> <button id="btnEn" data-lang="en">EN</button> </div> <a href="/goycaz-labs/contacto" class="btn btn-ghost" data-en="Talk to us">Conversemos</a> <a href="/goycaz-labs/contacto" class="btn btn-primary" data-en="Book a call">Agenda una llamada</a> <button class="menu-btn" id="menuBtn" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button> </div> </div> </header> <main>  <section class="page-hero" style="padding-bottom:80px"> <div class="wrap"> <span class="eyebrow"><span class="bar"></span>Error 404</span> <h1 data-en="This route isn't in production.">Esta ruta no está en producción.</h1> <p class="lead" data-en="The page you're looking for doesn't exist or was moved. Let's get you back on track.">La página que buscas no existe o fue movida. Te devolvemos al camino.</p> <div class="hero-cta" style="margin-top:26px"> <a href="/goycaz-labs/" class="btn btn-primary" data-en="Back home">Volver al inicio</a> <a href="/goycaz-labs/contacto" class="btn btn-ghost" data-en="Contact us">Contáctanos</a> </div> </div> </section>  </main> <footer> <div class="wrap"> <div class="foot-top"> <div class="foot-brand"> <a href="/goycaz-labs/" class="logo"><span class="mark">G</span>GoyCaz<span class="dim">Labs</span></a> <p data-en="AI, software and infrastructure that actually ship to production — without breaking what works, no lock-in.">IA, software e infraestructura que sí llegan a producción — sin romper lo que funciona, sin lock-in.</p> </div> <div class="foot-col"> <h4 data-en="Explore">Explora</h4> <a href="/goycaz-labs/servicios" data-en="Services">Servicios</a> <a href="/goycaz-labs/casos" data-en="Work">Casos</a> <a href="/goycaz-labs/precios" data-en="Pricing">Precios</a> <a href="/goycaz-labs/nosotros" data-en="About">Nosotros</a> </div> <div class="foot-col"> <h4 data-en="Contact">Contacto</h4> <a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp</a> <a href="mailto:hola@goycazlabs.com">hola@goycazlabs.com</a> <a href="https://instagram.com/goycaz.labs" target="_blank" rel="noopener">Instagram</a> <a href="https://www.linkedin.com/in/yagocaldas" target="_blank" rel="noopener">LinkedIn</a> </div> </div> <div class="foot-bottom"> <div class="logo" style="font-size:16px"><span class="mark" style="width:24px;height:24px;font-size:13px">G</span>GoyCaz<span class="dim">Labs</span></div> <div class="muted">© <span id="yr">2026</span> GoyCaz Labs · <span data-en="Built to run in production.">Hecho para correr en producción.</span></div> </div> </div> </footer> <script>(function(){const WHATSAPP = "51999999999";
+const titleEn = "404 — GoyCaz Labs";
+
+    (function () {
+      var STORE = 'goycaz-lang';
+      var els = document.querySelectorAll('[data-en]');
+      els.forEach(function (el) { el.dataset.es = el.innerHTML; });
+      var titleEs = document.title;
+
+      function apply(lang) {
+        var en = lang === 'en';
+        els.forEach(function (el) { el.innerHTML = en ? el.dataset.en : el.dataset.es; });
+        document.documentElement.lang = en ? 'en' : 'es';
+        document.title = en ? titleEn : titleEs;
+        var be = document.getElementById('btnEs'), bn = document.getElementById('btnEn');
+        if (be) be.classList.toggle('active', !en);
+        if (bn) bn.classList.toggle('active', en);
+        try { localStorage.setItem(STORE, lang); } catch (e) {}
+        window.__lang = lang;
+      }
+      var saved = 'es';
+      try { saved = localStorage.getItem(STORE) || 'es'; } catch (e) {}
+      apply(saved);
+      document.querySelectorAll('[data-lang]').forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+      });
+
+      // mobile menu
+      var mb = document.getElementById('menuBtn'), nl = document.getElementById('navLinks');
+      if (mb && nl) {
+        mb.addEventListener('click', function () {
+          var open = nl.classList.toggle('open');
+          mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        nl.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () { nl.classList.remove('open'); });
+        });
+      }
+
+      // year
+      var yr = document.getElementById('yr');
+      if (yr) yr.textContent = new Date().getFullYear();
+
+      // reveal on scroll
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else { reveals.forEach(function (el) { el.classList.add('in'); }); }
+
+      // terminal typing (home only)
+      var lines = Array.prototype.slice.call(document.querySelectorAll('#term .l'));
+      if (lines.length) {
+        if (reduce) { lines.forEach(function (l) { l.classList.add('show'); }); }
+        else {
+          var i = 0;
+          (function step() {
+            if (i >= lines.length) return;
+            lines[i].classList.add('show'); i++;
+            setTimeout(step, 420);
+          })();
+        }
+      }
+
+      // contact form -> WhatsApp
+      var form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          var g = function (id) { var n = document.getElementById(id); return n ? (n.value || '').trim() : ''; };
+          var name = g('f_name'), biz = g('f_biz'), need = g('f_need'), msg = g('f_msg');
+          var en = window.__lang === 'en';
+          var t = en
+            ? ("Hi GoyCaz Labs! I'm " + name + (biz ? (' from ' + biz) : '') + '. I’m interested in: ' + need + '.' + (msg ? (' ' + msg) : ''))
+            : ('¡Hola GoyCaz Labs! Soy ' + name + (biz ? (' de ' + biz) : '') + '. Me interesa: ' + need + '.' + (msg ? (' ' + msg) : ''));
+          window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(t), '_blank');
+        });
+      }
+    })();
+  })();</script> </body> </html>
