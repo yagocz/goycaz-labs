@@ -28,8 +28,14 @@ const {
   <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
   <script is:inline>
     (function () {
-      try { document.documentElement.setAttribute('data-theme', localStorage.getItem('goycaz-theme') || 'light'); }
-      catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+      var el = document.documentElement;
+      el.classList.add('js');
+      var t = 'light';
+      try {
+        var q = new URLSearchParams(location.search).get('theme');
+        t = (q === 'dark' || q === 'light') ? q : (localStorage.getItem('goycaz-theme') || 'light');
+      } catch (e) {}
+      el.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
     })();
   </script>
 </head>
