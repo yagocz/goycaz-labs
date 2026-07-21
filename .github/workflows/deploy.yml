@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_TARGET: ghpages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
