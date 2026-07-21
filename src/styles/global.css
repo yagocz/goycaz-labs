@@ -95,7 +95,7 @@ header.nav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--b
 .dot-live{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(62,156,99,.55);animation:pulse 2.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,156,99,.5)}70%{box-shadow:0 0 0 8px rgba(62,156,99,0)}100%{box-shadow:0 0 0 0 rgba(62,156,99,0)}}
 .hero h1{font-size:clamp(37px,5.6vw,66px);letter-spacing:-.03em;margin:0 0 24px}
-.hero h1 .hl{color:var(--amber-ink);font-style:italic;font-weight:700}
+.hero h1 .hl{color:var(--amber-ink)}
 .hero .lead{margin-bottom:34px;max-width:52ch}
 .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
 .hero-trust{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:34px;color:var(--muted-2);font-size:13px}
