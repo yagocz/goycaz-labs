@@ -18,13 +18,20 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#0B0F17" />
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B0D11" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:locale" content="es_PE" />
   <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+  <script is:inline>
+    (function () {
+      try { document.documentElement.setAttribute('data-theme', localStorage.getItem('goycaz-theme') || 'light'); }
+      catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
 </head>
 <body>
   <Header active={active} />
@@ -56,6 +63,14 @@ const {
       apply(saved);
       document.querySelectorAll('[data-lang]').forEach(function (b) {
         b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+      });
+
+      // theme toggle
+      var themeBtn = document.getElementById('themeBtn');
+      if (themeBtn) themeBtn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('goycaz-theme', next); } catch (e) {}
       });
 
       // mobile menu

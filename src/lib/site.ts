@@ -8,10 +8,10 @@ export function url(path = '/'): string {
   return b + (path.startsWith('/') ? path : '/' + path);
 }
 
-// ── Contact details — REEMPLAZA por los reales ──────────────
-export const WHATSAPP = '51999999999';                 // sin +, sin espacios
-export const WHATSAPP_PRETTY = '+51 999 999 999';
-export const EMAIL = 'hola@goycazlabs.com';
+// ── Contact details ─────────────────────────────────────────
+export const WHATSAPP = '51994146110';                 // sin +, sin espacios
+export const WHATSAPP_PRETTY = '+51 994 146 110';
+export const EMAIL = 'yagocz0206@gmail.com';
 export const INSTAGRAM = 'goycaz.labs';
 export const INSTAGRAM_URL = 'https://instagram.com/goycaz.labs';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/yagocaldas';
