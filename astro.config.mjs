@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
 
-// Deploy target controls the base path:
-//   - default (goycazlabs.com on Cloudflare):  served at root  → base '/'
-//   - GitHub Pages project site:        served at /goycaz-labs/  (set DEPLOY_TARGET=ghpages)
-const ghpages = process.env.DEPLOY_TARGET === 'ghpages';
-
+// SSR sobre Node: el sitio corre como proceso bajo pm2 y se expone por
+// cloudflared, igual que el resto de los proyectos. El adapter 'standalone'
+// levanta su propio servidor HTTP (puerto via env PORT/HOST).
 export default defineConfig({
-  site: ghpages ? 'https://yagocz.github.io' : 'https://goycazlabs.com',
-  base: ghpages ? '/goycaz-labs' : '/',
+  site: 'https://goycazlabs.com',
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
   trailingSlash: 'ignore',
   build: { format: 'directory' },
 });

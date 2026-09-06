@@ -1,19 +1,24 @@
-name: Deploy to Cloudflare
+name: CI
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 concurrency:
-  group: deploy-cloudflare
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
+# El sitio se despliega en la maquina propia (Astro SSR bajo pm2, expuesto por
+# cloudflared), asi que GitHub no puede publicarlo: no alcanza ese host.
+# Este workflow solo verifica que el proyecto compile en limpio.
+# Para desplegar: `npm run deploy` en la maquina.
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,12 +35,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          # Fijada: las versiones antiguas exigen `main`, y este Worker es
-          # solo-assets (sin script de entrada).
-          wranglerVersion: "4.129.0"
-          command: deploy
