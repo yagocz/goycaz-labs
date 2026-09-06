@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "goycaz-labs",
+  "compatibility_date": "2026-09-06",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "goycazlabs.com", "custom_domain": true },
+    { "pattern": "www.goycazlabs.com", "custom_domain": true }
+  ]
+}
