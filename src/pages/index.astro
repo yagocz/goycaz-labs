@@ -52,10 +52,39 @@ const stack = ['Python · FastAPI', 'Flutter', 'RAG · MCP', 'Claude · Gemini',
   </div>
 
   <!-- SERVICES -->
+  <!-- PAIN -->
+  <section class="block alt" id="problemas">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">01</span><span class="bar"></span><span data-en="The problem">El problema</span></span>
+        <h2 data-en="Does this sound familiar?">¿Te suena familiar?</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain reveal">
+          <h3 data-en="Messages answered hours later">Los mensajes se responden horas después</h3>
+          <p data-en="A client writes on a Saturday night. You reply on Monday. By then they already bought from someone else.">Un cliente escribe un sábado por la noche. Le contestas el lunes. Para entonces ya le compró a otro.</p>
+        </div>
+        <div class="pain reveal">
+          <h3 data-en="Missed calls nobody returns">Llamadas perdidas que nadie devuelve</h3>
+          <p data-en="You were busy and couldn't pick up. That call was a client ready to buy, and they never called back.">Estabas ocupado y no contestaste. Esa llamada era un cliente listo para comprar, y nunca volvió a llamar.</p>
+        </div>
+        <div class="pain reveal">
+          <h3 data-en="People who book and don't show">Clientes que agendan y no llegan</h3>
+          <p data-en="You blocked the slot, got everything ready, and nobody came. Nobody reminded them the day before.">Reservaste el horario, preparaste todo y no apareció nadie. Nadie le recordó su cita el día anterior.</p>
+        </div>
+        <div class="pain reveal">
+          <h3 data-en="Past clients who never come back">Clientes antiguos que nunca vuelven</h3>
+          <p data-en="They bought once, were happy, and forgot about you. They're in your phone and nobody has written to them.">Te compraron una vez, quedaron contentos y se olvidaron de ti. Están en tu celular y nadie les ha escrito.</p>
+        </div>
+      </div>
+      <p class="pain-close reveal" data-en="Each of those is money walking out the door this week.">Cada uno de esos es dinero que se te está yendo esta semana.</p>
+    </div>
+  </section>
+
   <section class="block" id="servicios">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow"><span class="num">01</span><span class="bar"></span><span data-en="Services">Servicios</span></span>
+        <span class="eyebrow"><span class="num">02</span><span class="bar"></span><span data-en="Services">Servicios</span></span>
         <h2 data-en="Everything to modernize your business and put AI to work — from one team.">Todo para modernizar tu negocio y poner la IA a trabajar — de un solo equipo.</h2>
         <p class="lead" data-en="From a simple automation to a full AI platform over your data. We start with whatever gives you the most value today.">Desde una automatización simple hasta una plataforma de IA sobre tus datos. Empezamos con lo que más valor te da hoy.</p>
       </div>
@@ -76,7 +105,7 @@ const stack = ['Python · FastAPI', 'Flutter', 'RAG · MCP', 'Claude · Gemini',
   <section class="block alt">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow"><span class="num">02</span><span class="bar"></span><span data-en="Why GoyCaz">Por qué GoyCaz</span></span>
+        <span class="eyebrow"><span class="num">03</span><span class="bar"></span><span data-en="Why GoyCaz">Por qué GoyCaz</span></span>
         <h2 data-en="Lots of people build demos. We keep them running.">Muchos hacen demos. Nosotros las mantenemos corriendo.</h2>
       </div>
       <div class="why-grid">
@@ -92,7 +121,7 @@ const stack = ['Python · FastAPI', 'Flutter', 'RAG · MCP', 'Claude · Gemini',
     <div class="wrap">
       <div class="sec-head reveal" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;max-width:none">
         <div>
-          <span class="eyebrow"><span class="num">03</span><span class="bar"></span><span data-en="Real work">Casos reales</span></span>
+          <span class="eyebrow"><span class="num">04</span><span class="bar"></span><span data-en="Real work">Casos reales</span></span>
           <h2 data-en="Work in production, not slideware.">Trabajo en producción, no diapositivas.</h2>
         </div>
         <a href={url('/casos')} class="btn btn-ghost" data-en="See all work">Ver todos los casos</a>
@@ -106,6 +135,33 @@ const stack = ['Python · FastAPI', 'Flutter', 'RAG · MCP', 'Claude · Gemini',
             <div class="result"><span class="big" data-en={c.metrics[0].big}>{c.metrics[0].big}</span><span class="cap" data-en={c.metrics[0].capEn}>{c.metrics[0].capEs}</span></div>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="block alt" id="proceso">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="num">05</span><span class="bar"></span><span data-en="How it works">Cómo funciona</span></span>
+        <h2 data-en="Three steps and your business starts answering on its own.">Tres pasos y tu negocio empieza a responder solo.</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step reveal">
+          <span class="snum">1</span>
+          <h3 data-en="Free 10-minute diagnosis">Diagnóstico gratis de 10 minutos</h3>
+          <p data-en="We talk on WhatsApp or a video call. You tell us how you handle clients today. No cost, no commitment.">Conversamos por WhatsApp o videollamada. Nos cuentas cómo atiendes hoy a tus clientes. Sin costo y sin compromiso.</p>
+        </div>
+        <div class="step reveal">
+          <span class="snum">2</span>
+          <h3 data-en="We show you, with numbers, where you're losing money">Te mostramos con números dónde estás perdiendo plata</h3>
+          <p data-en="How many messages go unanswered, how many bookings fall through, and what that costs you per month. Your numbers, not theory.">Cuántos mensajes se quedan sin responder, cuántas citas se caen y cuánto vale eso al mes. Con tus números, no con teoría.</p>
+        </div>
+        <div class="step reveal">
+          <span class="snum">3</span>
+          <h3 data-en="We install it and your business runs on its own">Instalamos todo y tu negocio responde solo</h3>
+          <p data-en="We leave it running and maintain it month to month. You keep serving your clients; the system does the rest.">Lo dejamos funcionando y lo mantenemos mes a mes. Tú sigues atendiendo a tus clientes; el sistema hace el resto.</p>
+        </div>
       </div>
     </div>
   </section>

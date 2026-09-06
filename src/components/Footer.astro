@@ -5,7 +5,10 @@ import { url, EMAIL, WHATSAPP, INSTAGRAM_URL, LINKEDIN_URL } from '../lib/site';
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href={url('/')} class="logo"><span class="mark">G</span>GoyCaz<span class="dim">Labs</span></a>
+        <a href={url('/')} class="logo" aria-label="GoyCaz Labs">
+        <img src={url('/logo.png')} alt="GoyCaz Labs" class="logo-light" width="150" height="40" />
+        <img src={url('/logo-dark.png')} alt="" class="logo-dark" width="150" height="40" aria-hidden="true" />
+      </a>
         <p data-en="AI, software and infrastructure that actually ship to production — without breaking what works, no lock-in.">IA, software e infraestructura que sí llegan a producción — sin romper lo que funciona, sin lock-in.</p>
       </div>
       <div class="foot-col">
