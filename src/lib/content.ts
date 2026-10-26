@@ -168,6 +168,17 @@ export interface ShowcaseItem {
 
 export const showcase: ShowcaseItem[] = [
   {
+    name: 'Vanels Sport Store',
+    industryEs: 'E-commerce · Deportes', industryEn: 'E-commerce · Sports',
+    url: 'vanels.pe',
+    descEs: 'Tienda deportiva con más de 600 productos, buscador, filtros y consulta directa por WhatsApp, con panel de administración.',
+    descEn: 'Sports store with 600+ products, search, filters and direct WhatsApp inquiries, with an admin panel.',
+    href: 'https://vanels.pe/',
+    image: '/showcase/vanels.jpg',
+    frame: 'f-amber', placeholder: 'g-sky', mock: 'web',
+    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'Docker'],
+  },
+  {
     name: 'Render Perú',
     industryEs: 'Educación · Supply Chain', industryEn: 'Education · Supply Chain',
     url: 'render.pe',

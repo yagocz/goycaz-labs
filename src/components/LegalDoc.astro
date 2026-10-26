@@ -8,7 +8,7 @@ import { url, EMAIL, WHATSAPP, WHATSAPP_PRETTY } from '../lib/site';
 import { icons } from '../lib/icons';
 import {
   LEGAL_UPDATED_ES, LEGAL_UPDATED_EN,
-  LEGAL_OWNER, LEGAL_CITY_ES, LEGAL_CITY_EN,
+  LEGAL_OWNER, LEGAL_OWNER_EN, LEGAL_CITY_ES, LEGAL_CITY_EN,
   type LegalDoc,
 } from '../lib/legal';
 
@@ -85,7 +85,7 @@ const wa = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola GoyCaz Lab
 
       <div class="legal-contact dashed reveal">
         <p class="label" data-en="Data controller">Responsable</p>
-        <p class="who">GoyCaz Labs — {LEGAL_OWNER}</p>
+        <p class="who" data-en={`GoyCaz Labs — ${LEGAL_OWNER_EN}`}>GoyCaz Labs — {LEGAL_OWNER}</p>
         <p class="where" data-en={LEGAL_CITY_EN}>{LEGAL_CITY_ES}</p>
         <div class="legal-contact-links">
           <a href={`mailto:${EMAIL}`}>

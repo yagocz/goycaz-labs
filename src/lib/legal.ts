@@ -37,7 +37,8 @@ export const LEGAL_UPDATED_ES = '8 de septiembre de 2026';
 export const LEGAL_UPDATED_EN = 'September 8, 2026';
 
 // Razón social / responsable, repetido en los tres documentos.
-export const LEGAL_OWNER = 'Ernesto Yago Caldas Zapata';
+export const LEGAL_OWNER = 'Ernesto Yago Caldas Zapata y Nelson Fabrizzio Pereira';
+export const LEGAL_OWNER_EN = 'Ernesto Yago Caldas Zapata and Nelson Fabrizzio Pereira';
 export const LEGAL_CITY_ES = 'Miraflores, Lima, Perú';
 export const LEGAL_CITY_EN = 'Miraflores, Lima, Peru';
 
@@ -60,7 +61,7 @@ export const privacy: LegalDoc = {
         `Para cualquier tema de datos personales escribe a <a href="mailto:${EMAIL}">${EMAIL}</a> o al WhatsApp ${WHATSAPP_PRETTY}. Responde una persona, no un formulario automático.`,
       ],
       bodyEn: [
-        `<strong>GoyCaz Labs</strong> is the trade name of ${LEGAL_OWNER}, based in ${LEGAL_CITY_EN}. We are the controller of the personal data we receive through this website and our contact channels.`,
+        `<strong>GoyCaz Labs</strong> is the trade name of ${LEGAL_OWNER_EN}, based in ${LEGAL_CITY_EN}. We are the controller of the personal data we receive through this website and our contact channels.`,
         `For anything related to personal data, write to <a href="mailto:${EMAIL}">${EMAIL}</a> or WhatsApp ${WHATSAPP_PRETTY}. A person answers, not an automated form.`,
       ],
       noteEs: 'Esta política cubre el sitio <strong>www.goycazlabs.com</strong> y las conversaciones que tengas con nosotros por WhatsApp, correo o redes. Si contratas un servicio, el contrato de ese proyecto añade sus propias reglas sobre los datos a los que nos des acceso.',
@@ -350,7 +351,7 @@ export const terms: LegalDoc = {
         'Estos términos cubren el uso del sitio <strong>www.goycazlabs.com</strong> y el contacto comercial inicial. Cada proyecto se rige además por su propia propuesta o contrato firmado; si ese documento dice algo distinto a lo de acá, manda el documento del proyecto.',
       ],
       bodyEn: [
-        `<strong>GoyCaz Labs</strong> is the trade name of ${LEGAL_OWNER}, based in ${LEGAL_CITY_EN}.`,
+        `<strong>GoyCaz Labs</strong> is the trade name of ${LEGAL_OWNER_EN}, based in ${LEGAL_CITY_EN}.`,
         'These terms cover the use of <strong>www.goycazlabs.com</strong> and the initial commercial contact. Each project is additionally governed by its own signed proposal or contract; if that document says something different from this page, the project document prevails.',
       ],
     },
